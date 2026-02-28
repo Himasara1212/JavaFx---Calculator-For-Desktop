@@ -105,6 +105,27 @@ public class CalculatorController {
         display.setText("0");
     }
 
+    @FXML
+    void btnBackspace(ActionEvent event) {
+       // - If only have 0 no need to do any thing
+        if(!display.getText().equals("0") ){
+//            String str = "Hello World";
+//            String result = str.substring(0, str.length() - 1);
+//            System.out.println(result); // "Hello Worl"
+
+            if(display.getText().isEmpty()){
+                display.setText("0");
+            }else{
+                String currenttext = display.getText();
+                String updatedText = currenttext.substring(0, currenttext.length()-1);
+                display.setText(updatedText);
+
+                if(display.getText().equals("") || display.getText().equals(" ")){
+                    display.setText("0");
+                }
+            }
+        }
+    }
 
 
 }
