@@ -111,6 +111,14 @@ public class CalculatorController {
         String currentText = display.getText();
         display.clear();
         display.setText("0");
+
+        //REMOVING VARIABLE SAVED DATA
+        operation = "";
+        fristNumber = "";
+
+        //REMOVEING THE DATA FROM UI
+        lblOperation.setText("");
+        lblPreviousNumber.setText("");
     }
 
     @FXML
@@ -178,4 +186,6 @@ public class CalculatorController {
     void btnMultiply(ActionEvent event) {
         setDisplayValues("*");
     }
+
+
 }
