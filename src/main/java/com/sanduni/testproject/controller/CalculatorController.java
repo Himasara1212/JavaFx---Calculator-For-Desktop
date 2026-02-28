@@ -127,5 +127,14 @@ public class CalculatorController {
         }
     }
 
+    @FXML
+    void btnDecimle(ActionEvent event) {
+        if(display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()){
+            display.setText("0");
+        }
 
+        String currenttext = display.getText();
+        display.clear();
+        display.setText(currenttext+".");
+    }
 }

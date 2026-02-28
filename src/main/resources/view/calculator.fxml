@@ -76,7 +76,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="149.0" layoutY="348.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="." textFill="WHITE">
+      <Button layoutX="149.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnDecimle" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="." textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
