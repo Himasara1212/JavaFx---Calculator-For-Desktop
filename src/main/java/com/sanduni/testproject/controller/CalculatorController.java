@@ -2,6 +2,7 @@ package com.sanduni.testproject.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class CalculatorController {
@@ -11,6 +12,13 @@ public class CalculatorController {
     private String operation;
     private String fristNumber;
     private String seccondNumber;
+
+
+    @FXML
+    private Label lblOperation;
+
+    @FXML
+    private Label lblPreviousNumber;
 
     private void checkIsNumberzero(){
         if(display.getText().equals("0")){
@@ -136,5 +144,38 @@ public class CalculatorController {
         String currenttext = display.getText();
         display.clear();
         display.setText(currenttext+".");
+    }
+
+    private void setDisplayValues(String mathOperation){
+        if(display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()){
+            display.setText("0");
+        }
+
+        fristNumber = display.getText();
+        lblPreviousNumber.setText(fristNumber);
+
+        operation = mathOperation;
+        lblOperation.setText(operation);
+        display.clear();
+    }
+
+    @FXML
+    void btnAdd(ActionEvent event) {
+       setDisplayValues("+");
+    }
+
+    @FXML
+    void btnDecrement(ActionEvent event) {
+        setDisplayValues("-");
+    }
+
+    @FXML
+    void btnDevition(ActionEvent event) {
+        setDisplayValues("/");
+    }
+
+    @FXML
+    void btnMultiply(ActionEvent event) {
+        setDisplayValues("*");
     }
 }
