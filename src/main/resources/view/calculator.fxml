@@ -82,7 +82,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="215.0" layoutY="348.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: orange;" text="=" textFill="WHITE">
+      <Button layoutX="215.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnequl" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: orange;" text="=" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
@@ -92,7 +92,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="80.0" layoutY="101.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="\%" textFill="WHITE">
+      <Button layoutX="80.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnModulas" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="\%" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>

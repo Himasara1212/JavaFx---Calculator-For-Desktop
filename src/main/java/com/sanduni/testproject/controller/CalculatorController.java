@@ -6,13 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class CalculatorController {
+
     @FXML
     private TextField display;
 
     private String operation;
-    private String fristNumber;
-    private String seccondNumber;
-
+    private String firstNumber;
+    private String secondNumber;
 
     @FXML
     private Label lblOperation;
@@ -20,8 +20,8 @@ public class CalculatorController {
     @FXML
     private Label lblPreviousNumber;
 
-    private void checkIsNumberzero(){
-        if(display.getText().equals("0")){
+    private void checkIsNumberzero() {
+        if (display.getText().equals("0")) {
             display.clear();
         }
     }
@@ -31,7 +31,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+7);
+        display.setText(currentText + 7);
     }
 
     @FXML
@@ -39,7 +39,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+8);
+        display.setText(currentText + 8);
     }
 
     @FXML
@@ -47,7 +47,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+9);
+        display.setText(currentText + 9);
     }
 
     @FXML
@@ -55,7 +55,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+6);
+        display.setText(currentText + 6);
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+5);
+        display.setText(currentText + 5);
     }
 
     @FXML
@@ -71,7 +71,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+4);
+        display.setText(currentText + 4);
     }
 
     @FXML
@@ -79,7 +79,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+3);
+        display.setText(currentText + 3);
     }
 
     @FXML
@@ -87,7 +87,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+2);
+        display.setText(currentText + 2);
     }
 
     @FXML
@@ -95,7 +95,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+1);
+        display.setText(currentText + 1);
     }
 
     @FXML
@@ -103,7 +103,7 @@ public class CalculatorController {
         checkIsNumberzero();
         String currentText = display.getText();
         display.clear();
-        display.setText(currentText+0);
+        display.setText(currentText + 0);
     }
 
     @FXML
@@ -112,31 +112,28 @@ public class CalculatorController {
         display.clear();
         display.setText("0");
 
-        //REMOVING VARIABLE SAVED DATA
+        // REMOVING VARIABLE SAVED DATA
         operation = "";
-        fristNumber = "";
+        firstNumber = "";
+        secondNumber = "";
 
-        //REMOVEING THE DATA FROM UI
+        // REMOVEING THE DATA FROM UI
         lblOperation.setText("");
         lblPreviousNumber.setText("");
     }
 
     @FXML
     void btnBackspace(ActionEvent event) {
-       // - If only have 0 no need to do any thing
-        if(!display.getText().equals("0") ){
-//            String str = "Hello World";
-//            String result = str.substring(0, str.length() - 1);
-//            System.out.println(result); // "Hello Worl"
-
-            if(display.getText().isEmpty()){
+        // - If only have 0 no need to do anything
+        if (!display.getText().equals("0")) {
+            if (display.getText().isEmpty()) {
                 display.setText("0");
-            }else{
+            } else {
                 String currenttext = display.getText();
-                String updatedText = currenttext.substring(0, currenttext.length()-1);
+                String updatedText = currenttext.substring(0, currenttext.length() - 1);
                 display.setText(updatedText);
 
-                if(display.getText().equals("") || display.getText().equals(" ")){
+                if (display.getText().equals("") || display.getText().equals(" ")) {
                     display.setText("0");
                 }
             }
@@ -145,22 +142,26 @@ public class CalculatorController {
 
     @FXML
     void btnDecimle(ActionEvent event) {
-        if(display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()){
+        if (display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()) {
             display.setText("0");
         }
 
-        String currenttext = display.getText();
-        display.clear();
-        display.setText(currenttext+".");
+        // Check karanna dot ekak danne nathi nam witharak denna
+        if (!display.getText().contains(".")) {
+            String currenttext = display.getText();
+            display.clear();
+            display.setText(currenttext + ".");
+        }
     }
 
-    private void setDisplayValues(String mathOperation){
-        if(display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()){
+    private void setDisplayValues(String mathOperation) {
+        // METHOD EKE WENADE KIYAWALA THEERUM GANNA
+        if (display.getText().equals("") || display.getText().equals(" ") || display.getText().isEmpty()) {
             display.setText("0");
         }
 
-        fristNumber = display.getText();
-        lblPreviousNumber.setText(fristNumber);
+        firstNumber = display.getText();
+        lblPreviousNumber.setText(firstNumber);
 
         operation = mathOperation;
         lblOperation.setText(operation);
@@ -169,7 +170,7 @@ public class CalculatorController {
 
     @FXML
     void btnAdd(ActionEvent event) {
-       setDisplayValues("+");
+        setDisplayValues("+");
     }
 
     @FXML
@@ -183,9 +184,95 @@ public class CalculatorController {
     }
 
     @FXML
+    void btnModulas(ActionEvent event) {
+        setDisplayValues("%");
+    }
+
+    @FXML
     void btnMultiply(ActionEvent event) {
         setDisplayValues("*");
     }
 
+    @FXML
+    void btnequl(ActionEvent event) {
+        // Display eke thiyena number eka secondNumber widiyata save karaganna
+        secondNumber = display.getText();
 
+        // First number ,second number dala thyenawada check karanna
+        if (firstNumber == null || firstNumber.isEmpty() || secondNumber == null || secondNumber.isEmpty()) {
+            display.setText("Error");
+            return;
+        }
+
+        // Operation ekak thyenawada check karanna
+        if (operation == null || operation.isEmpty()) {
+            display.setText("Error");
+            return;
+        }
+
+        // Calculations karanna
+        try {
+            // String values numbers walata convert karanna
+            double num1 = Double.parseDouble(firstNumber);
+            double num2 = Double.parseDouble(secondNumber);
+            double result = 0;
+
+            // calculation karanna
+            switch (operation) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                    } else {
+                        display.setText("Cannot divide by zero");
+                        clearAfterError();
+                        return;
+                    }
+                    break;
+                default:
+                    display.setText("Invalid Operation");
+                    clearAfterError();
+                    return;
+            }
+
+            // Result eka display karanna
+            if (result == (int) result) {
+                display.setText(String.valueOf((int) result));
+            } else {
+                display.setText(String.valueOf(result));
+            }
+
+            // Operation ha previous number clear karanna
+            lblOperation.setText("");
+            lblPreviousNumber.setText("");
+
+            // First number eka save karanna
+            firstNumber = display.getText();
+            operation = ""; // Operation eka clear karanna
+
+        } catch (NumberFormatException e) {
+            display.setText("Invalid Number");
+            clearAfterError();
+        }
+    }
+
+    // Error ekak awoth clear karanna
+    private void clearAfterError() {
+        firstNumber = "";
+        secondNumber = "";
+        operation = "";
+        lblOperation.setText("");
+        lblPreviousNumber.setText("");
+    }
 }
