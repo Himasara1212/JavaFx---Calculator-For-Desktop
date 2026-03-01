@@ -6,108 +6,136 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="422.0" prefWidth="288.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sanduni.testproject.controller.CalculatorController">
+<AnchorPane prefHeight="422.0" prefWidth="288.0" style="-fx-background-color: #1C1C1E;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sanduni.testproject.controller.CalculatorController">
    <children>
-      <TextField fx:id="display" editable="false" layoutX="15.0" layoutY="14.0" prefHeight="75.0" prefWidth="257.0" text="0">
+      <!-- Modern Display -->
+      <TextField fx:id="display" editable="false" layoutX="15.0" layoutY="14.0" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: 300; -fx-padding: 0 15;" text="0">
          <font>
-            <Font size="28.0" />
-         </font></TextField>
-      <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn7" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="7" textFill="WHITE">
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </TextField>
+
+      <!-- Previous Number and Operation Labels -->
+      <Label fx:id="lblPreviousNumber" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="30.0" prefHeight="17.0" prefWidth="182.0" style="-fx-text-fill: #8E8E93;" textFill="#8b8b8b" />
+      <Label fx:id="lblOperation" alignment="CENTER_RIGHT" layoutX="228.0" layoutY="43.0" prefHeight="17.0" prefWidth="39.0" style="-fx-text-fill: #0A84FF; -fx-font-size: 18px;" textFill="#8b8b8b" />
+
+      <!-- Top Row - Function Buttons -->
+      <Button layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnclear" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #3A3A3C; -fx-background-radius: 12; -fx-text-fill: #FF453A; -fx-font-weight: bold;" text="C" textFill="#d20000">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="81.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn8" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="8" textFill="WHITE">
+
+      <Button layoutX="80.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnModulas" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #3A3A3C; -fx-background-radius: 12; -fx-text-fill: #0A84FF;" text="\%" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="148.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn9" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="9" textFill="WHITE">
+
+      <Button layoutX="147.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnBackspace" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #3A3A3C; -fx-background-radius: 12; -fx-text-fill: #0A84FF;" text="⌫" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="214.0" layoutY="162.0" mnemonicParsing="false" onAction="#btnMultiply" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="x" textFill="WHITE">
+
+      <Button layoutX="213.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnDevition" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #FF9F0A; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="÷" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="15.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn4" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="4" textFill="WHITE">
+
+      <!-- Row 1 - Numbers 7,8,9,× -->
+      <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn7" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="7" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="82.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn5" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="5" textFill="WHITE">
+
+      <Button layoutX="81.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn8" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="8" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="149.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn6" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="6" textFill="WHITE">
+
+      <Button layoutX="148.0" layoutY="162.0" mnemonicParsing="false" onAction="#btn9" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="9" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="215.0" layoutY="223.0" mnemonicParsing="false" onAction="#btnDecrement" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="-" textFill="WHITE">
+
+      <Button layoutX="214.0" layoutY="162.0" mnemonicParsing="false" onAction="#btnMultiply" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #FF9F0A; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="×" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="16.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn1" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="1" textFill="WHITE">
+
+      <!-- Row 2 - Numbers 4,5,6,- -->
+      <Button layoutX="15.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn4" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="4" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="83.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn2" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="2" textFill="WHITE">
+
+      <Button layoutX="82.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn5" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="5" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="150.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn3" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: gray;" text="3" textFill="WHITE">
+
+      <Button layoutX="149.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn6" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="6" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="216.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="+" textFill="WHITE">
+
+      <Button layoutX="215.0" layoutY="223.0" mnemonicParsing="false" onAction="#btnDecrement" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #FF9F0A; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="-" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="15.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn0" prefHeight="53.0" prefWidth="125.0" style="-fx-background-color: gray;" text="0" textFill="WHITE">
+
+      <!-- Row 3 - Numbers 1,2,3,+ -->
+      <Button layoutX="16.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn1" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="1" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="149.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnDecimle" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="." textFill="WHITE">
+
+      <Button layoutX="83.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn2" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="2" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="215.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnequl" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: orange;" text="=" textFill="WHITE">
+
+      <Button layoutX="150.0" layoutY="285.0" mnemonicParsing="false" onAction="#btn3" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="3" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnclear" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="C" textFill="#d20000">
+
+      <Button layoutX="216.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #FF9F0A; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="+" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="80.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnModulas" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="\%" textFill="WHITE">
+
+      <!-- Bottom Row - 0,.,= -->
+      <Button layoutX="15.0" layoutY="348.0" mnemonicParsing="false" onAction="#btn0" prefHeight="53.0" prefWidth="125.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="0" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="147.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnBackspace" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="⌫" textFill="WHITE">
+
+      <Button layoutX="149.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnDecimle" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #2C2C2E; -fx-background-radius: 12; -fx-text-fill: #FFFFFF;" text="." textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Button layoutX="213.0" layoutY="101.0" mnemonicParsing="false" onAction="#btnDevition" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: green;" text="÷" textFill="WHITE">
+
+      <Button layoutX="215.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnequl" prefHeight="53.0" prefWidth="59.0" style="-fx-background-color: #FF9F0A; -fx-background-radius: 12; -fx-text-fill: #FFFFFF; -fx-font-weight: bold;" text="=" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Button>
-      <Label fx:id="lblPreviousNumber" alignment="CENTER_RIGHT" layoutX="85.0" layoutY="20.0" prefHeight="17.0" prefWidth="182.0" textFill="#8b8b8b" />
-      <Label fx:id="lblOperation" alignment="CENTER_RIGHT" layoutX="228.0" layoutY="33.0" prefHeight="17.0" prefWidth="39.0" textFill="#8b8b8b" />
    </children>
 </AnchorPane>
